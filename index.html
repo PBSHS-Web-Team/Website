@@ -1,11 +1,300 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Palawan Bethel SHS Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palawan Bethel SHS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .modal {
+            display: none;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        #mobile-nav {
+            transform: translateX(100%);
+        }
+
+        #mobile-nav.open {
+            transform: translateX(60%);
+        }
+    </style>
 </head>
-<body style="text-align:center">
+<body class="bg-gray-100 text-gray-700 flex flex-col items-center font-sans">
 
-<img src="hello.jpg" align="center" valign="middle" />
+    <!-- Header -->
+    <header class="w-full bg-white shadow-md py-4 px-6 flex justify-between items-center">
+        <a href="#"><h1 class="text-2xl font-semibold text-black-500">Palawan Bethel SHS</h1></a>
+        <button id="menu-btn" class="text-3xl text-black-500 fixed right-5 z-40">&#9776;</button>
+    </header>
 
+    <!-- Mobile Navigation Menu -->
+    <nav id="mobile-nav" class="fixed top-0 right-0 h-full w-2/3 bg-white shadow-lg transition-transform duration-300">
+        <ul class="flex flex-col p-6 space-y-4">
+            <li><a href="#" class="text-lg text-gray-700 hover:text-orange-500">Home</a></li>
+            <li><a href="#mission" class="text-lg text-gray-700 hover:text-orange-500">Mission</a></li>
+            <li><a href="#vision" class="text-lg text-gray-700 hover:text-orange-500">Vision</a></li>
+            <li><a href="#core-values" class="text-lg text-gray-700 hover:text-orange-500">Core Values</a></li>
+            <li><a href="#pledge" class="text-lg text-gray-700 hover:text-orange-500">Pledge</a></li>
+            <li><a href="#credits" class="text-lg text-gray-700 hover:text-orange-500">Credits</a></li>
+            <li><a href="#contact" class="text-lg text-gray-700 hover:text-orange-500">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Date Section -->
+    <section class="my-12 text-center space-y-10">
+        <p id="current-date" class="text-lg font-medium text-gray-600"></p>
+    </section>
+
+    <!-- Main Content -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-5 w-full max-w-md mx-auto">
+
+        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer" style="background-image: url('https://placehold.co/600x400/6699CC/6699CC/png')" data-title="Announcements" data-url="announcements.html">
+            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-square">
+                <h2 class="text-xl font-semibold">Announcements</h2>
+            </div>
+        </div>
+        
+        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer" style="background-image: url('https://placehold.co/600x400/teal/teal/png')" data-title="School Calendar" data-url="school-calendar.html">
+            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-square">
+                <h2 class="text-xl font-semibold">School Calendar</h2>
+            </div>
+        </div>
+
+        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer" style="background-image: url('https://placehold.co/600x400/purple/purple/png')" data-title="Principal's Corner" data-url="principals-corner.html">
+            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-square">
+                <h2 class="text-xl font-semibold">Principal's Corner</h2>
+            </div>
+        </div>
+
+        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer" style="background-image: url('https://placehold.co/600x400/pink/pink/png')" data-title="The Students" data-url="the-students.html">
+            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-square">
+                <h2 class="text-xl font-semibold">The Students</h2>
+            </div>
+        </div>
+
+        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer" style="background-image: url('https://placehold.co/600x400/orange/orange/png')" data-title="Faculty" data-url="faculty.html">
+            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-square">
+                <h2 class="text-xl font-semibold">Faculty</h2>
+            </div>
+        </div>
+
+        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer" style="background-image: url('https://placehold.co/600x400/green/green/png')" data-title="Programs" data-url="programs.html">
+            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-square">
+                <h2 class="text-xl font-semibold">Programs</h2>
+            </div>
+        </div>
+        
+        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer" style="background-image: url('https://placehold.co/600x400/red/red/png')" data-title="Offerings" data-url="offerings.html">
+            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-square">
+                <h2 class="text-xl font-semibold">Offerings</h2>
+            </div>
+        </div>
+        
+        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer" style="background-image: url('https://placehold.co/600x400/6699CC/6699CC/png')" data-title="Tracks & Strands" data-url="tracks-strands.html">
+            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-square">
+                <h2 class="text-xl font-semibold">Tracks & Strands</h2>
+            </div>
+        </div>
+        
+        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer" style="background-image: url('https://placehold.co/600x400/brown/brown/png')" data-title="Clubs" data-url="clubs.html">
+            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-square">
+                <h2 class="text-xl font-semibold">Clubs</h2>
+            </div>
+        </div>
+        
+        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer" style="background-image: url('https://placehold.co/600x400/purple/purple/png')" data-title="MICC" data-url="micc.html">
+            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-square">
+                <h2 class="text-xl font-semibold">MICC</h2>
+            </div>
+        </div>
+        
+        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer" style="background-image: url('https://placehold.co/600x400/magenta/magenta/png')" data-title="Student Council" data-url="student-council.html">
+            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-square">
+                <h2 class="text-xl font-semibold">Student Council</h2>
+            </div>
+        </div>
+        
+        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer" style="background-image: url('https://placehold.co/600x400/yellow/yellow/png')" data-title="New Gazette" data-url="new-gazette.html">
+            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-square">
+                <h2 class="text-xl font-semibold">New Gazette</h2>
+            </div>
+        </div>
+
+        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer" style="background-image: url('https://placehold.co/600x400/gray/gray/png')" data-title="Administration" data-url="administration.html">
+            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-square">
+                <h2 class="text-xl font-semibold">Administration</h2>
+            </div>
+        </div>
+
+        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer" style="background-image: url('https://placehold.co/600x400/brown/brown/png')" data-title="History" data-url="history.html">
+            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-square">
+                <h2 class="text-xl font-semibold">History</h2>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white w-full h-full p-6 rounded-lg relative shadow-lg m-2">
+            <button id="close-modal" class="absolute top-5 right-5 text-gray-500 text-3xl">&times;</button>
+            <h2 id="modal-title" class="text-3xl font-semibold mb-4"></h2>
+            <iframe id="modal-url" class="bg-white w-full h-4/5"></iframe>
+        </div>
+    </div>
+
+    <br class="grid grid-cols-1 w-full max-w-md mx-auto my-8">
+
+    <section class="grid grid-cols-1 w-full max-w-md mx-auto space-y-5">
+
+        <!-- Mission -->
+        <a name="mission"></a>
+        <div class="bg-white p-5 w-full rounded-lg shadow-lg border border-gray-300 space-y-5">
+            <h2 class="text-xs text-gray-600">MISSION</h2>
+            <p class="text-lg font-semibold text-black-500">With the Divine grace and guidance, the Palawan Bethel Senior High School (PBSHS), a Bible-believing Christian School, is committed to the service of youth, country, and God.</p>
+            <p class="text-lg font-semibold text-black-500">PBSHS upholds lifelong learning through progressive, creative, innovative, and relevant instruction providing balance between academics and student activities in molding students to be God-loving, humane, just, competent, and service oriented.</p>
+        </div>
+
+        <!-- Vision -->
+        <a name="vision"></a>
+        <div class="bg-white p-5 w-full rounded-lg shadow-lg border border-gray-300 space-y-5">
+            <h2 class="text-xs text-gray-600">VISION</h2>
+            <p class="text-lg font-semibold text-black-500">The PBSHS, strives to develop humane, just, morally upright, competent, and service-oriented individuals who will lead, nurture and pass on these ideals to the next generation in its aim to serve the youth, country, and God with utmost competence, professionalism, and commitment.</p>
+        </div>
+
+        <!-- Core Values -->
+        <a name="core-values"></a>
+        <div class="bg-white p-5 w-full rounded-lg shadow-lg border border-gray-300 space-y-5">
+            <h2 class="text-xs text-gray-600">CORE VALUES</h2>
+            <p class="text-lg font-semibold text-black-500">Benevolence, Excellence, Thankfulness, Honesty & Integrity, Environment-Friendliness, Loyalty, Love of God and Country, Service, Hard work, Social Responsibility</p>
+        </div>
+
+        <!-- Pledge  -->
+        <a name="pledge"></a>
+        <div class="bg-white p-5 w-full rounded-lg shadow-lg border border-gray-300 space-y-5">
+            <h2 class="text-xs text-gray-600">PLEDGE</h2>
+            <p class="text-lg font-semibold text-black-500"><strong>Pledge of the Bible: </strong>I pledge allegiance to the Bible, God's Holy Word. I will make it a lamp unto my feet, and light unto my path, and i will hide its words in my heart that i might not sin against God.</p>
+            <p class="text-lg font-semibold text-black-500"><strong>Pledge of the Christian Flag: </strong>I pledge allegiance to the Christian Flag, and to the Savior for whose Kingdom it stands; one Savior, crusified, risen, and coming again with life and liberty for all who believe.</p>
+        </div>
+
+        <!-- Credits -->
+        <a name="credits"></a>
+        <div class="bg-white p-5 rounded-lg shadow-lg border border-gray-300 space-y-5">
+            <h2 class="text-xs text-gray-600">CREDITS</h2>
+            <p class="">
+                <span class="text-xs rounded-lg border border-orange-600 bg-orange-800 px-2 text-white">HTML 5</span>
+                <span class="text-xs rounded-lg border border-lime-800 bg-sky-400 px-2 text-black">CSS 3</span>
+                <span class="text-xs rounded-lg border border-yellow-800 bg-yellow-400 px-2 text-black">Javascript</span>
+                <span class="text-xs rounded-lg border border-teal-800 bg-teal-400 px-2 text-black">Tailwind CSS</span>
+                <span class="text-xs rounded-lg border border-pink-800 bg-pink-600 px-2 text-white">K-12 Pyunghwa ICT</span>
+                <span class="text-xs rounded-lg border border-sky-800 bg-sky-950 px-2 text-white">Donjon Philippines</span>
+                <span class="text-xs rounded-lg border border-lime-800 bg-sky-400 px-2 text-black">Netlify</span>
+                <span class="text-xs rounded-lg border border-black bg-black px-2 text-white">Github</span>
+                <span class="text-xs rounded-lg border border-teal-400 bg-teal-800 px-2 text-white">ChatGPT</span>
+            </p>
+        </div>
+
+        <!-- Mission, Vision, Core Values, Credits -->
+        <a name="contact"></a>
+        <div class="bg-white p-5 w-full rounded-lg shadow-lg border border-gray-300 space-y-5">
+            <h2 class="text-xs text-gray-600">CONTACT</h2>
+            <p class="text-lg font-semibold text-black-500"><a href="https://www.facebook.com/profile.php?id=61552695923543">Facebook</a></p>
+        </div>
+    </section>
+
+    <br class="grid grid-cols-1 w-full max-w-md mx-auto my-8">
+    <br class="grid grid-cols-1 w-full max-w-md mx-auto my-8">
+    <br class="grid grid-cols-1 w-full max-w-md mx-auto my-8">
+
+    <!-- Footer -->
+    <footer class="w-full bg-gray-300 py-4 px-6 flex flex-col items-center mx-auto">
+        <h1 class="text-center text-black-300 text-xs">
+            All Rights Reserved
+            <span class=""> &nbsp; &nbsp; &middot; &nbsp; &nbsp; </span>
+            Copyright &copy; 2024 Palawan Bethel Senior High School
+            <span class=""> &nbsp; &nbsp; &middot; &nbsp; &nbsp; </span>
+            Hosted by Netlify
+            <span class=""> &nbsp; &nbsp; &middot; &nbsp; &nbsp; </span>
+            CI/CD by Github
+            <span class=""> &nbsp; &nbsp; &middot; &nbsp; &nbsp; </span>
+            Maintained by Donjon Information Technology Services
+        </h1>
+    </footer>    
+
+    <!-- JavaScript -->
+    <script>
+
+        // Function to format the dynamic date
+        function getFormattedDate() {
+            const today = new Date();
+
+            // Array of long weekday names
+            const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            
+            // Get the day of the week (0-6)
+            const dayOfWeek = weekdays[today.getDay()];
+
+            // Get the date
+            const day = today.getDate();
+
+            // Array of month names
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            
+            // Get the month name (0-11)
+            const month = months[today.getMonth()];
+
+            // Get the year
+            const year = today.getFullYear();
+
+            // Construct the message
+            const message = `Today is <u>${dayOfWeek}</u>, ${month} ${day}, ${year}.`;
+
+            return message;
+        }
+
+        // Display the dynamic date
+        document.getElementById('current-date').innerHTML = getFormattedDate();
+
+        // Menu Button
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        menuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+        });
+
+        // Modal Logic
+        const modal = document.getElementById('modal');
+        const closeModal = document.getElementById('close-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalUrl = document.getElementById('modal-url');
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                modal.classList.remove('hidden');
+                modalTitle.textContent = card.dataset.title;
+                modalUrl.src = card.dataset.url;
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        // Close modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 </html>
