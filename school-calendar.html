@@ -3,29 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PBSHS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>School Calendar PBSHS</title>
+
     <style>
-        body {
-            font-family: 'Work Sans', sans-serif;
-        }
+               /*Calendar Style*/
+
+               .calendar {
+    width: 380px;
+    margin-left: 10%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #3f51b5;
+    color: #fff;
+  }
+
+  .month-year {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 10px;
+  }
+
+  .day {
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .date {
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .date:hover {
+  background-color: #acacf6;
+}
+
+  .highlight {
+    background-color: #ffd900;
+    color: #333;
+    size: 20px;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+
+  .disabled {
+    color: #ccc;
+  }
+
+  .button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  /* Popup Styles */
+  .popup {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s;
+  }
+
+  .popup-content {
+    background-color: #fff;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .popup-content h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .popup-content p {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .popup-content .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #666;
+  }
+
+  .show {
+    visibility: visible;
+    opacity: 1;
+  }
     </style>
 </head>
-<body class="bg-white text-gray-700 flex flex-col font-sans">
-    <h6 class="pb-3">This is a test</h6>
-    <p class="pb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel dolor ornare, hendrerit odio eu, blandit elit. Sed nec turpis volutpat, sagittis dui sed, semper leo. Vestibulum suscipit ac tortor vel dignissim. Proin suscipit sagittis felis ut vestibulum. Sed faucibus scelerisque sapien sed auctor. Mauris facilisis gravida lorem, sit amet efficitur lorem congue at. Pellentesque gravida id diam id dapibus. Aliquam vel urna ac elit hendrerit faucibus sit amet non neque. Proin at odio accumsan, fringilla felis ut, sodales sem. Quisque magna mauris, elementum sit amet tincidunt sed, mollis ut lorem. Morbi id mollis ex. Sed dictum metus quis vulputate imperdiet. Duis porta, orci eget fermentum vestibulum, nunc mi sollicitudin erat, vel sodales metus ligula nec erat.</p>
-    <p class="pb-3">Cras congue aliquet lectus sit amet posuere. Phasellus sed dui in nibh euismod blandit. Duis eleifend pharetra enim id fermentum. Etiam libero ipsum, pretium efficitur tincidunt sit amet, vestibulum eget lectus. Vestibulum vestibulum lorem consectetur lacus facilisis, ut iaculis massa pellentesque. Nam enim ex, ornare sit amet pellentesque eget, ornare sed nisl. Sed non tellus ac purus semper accumsan a in purus. Aliquam finibus felis bibendum, efficitur dolor sed, vulputate nisi. Fusce diam elit, vestibulum at tincidunt lacinia, sollicitudin vitae ligula. Integer in risus lacinia, convallis nisl ac, hendrerit ante.</p>
-    <p class="pb-3">Fusce quis sodales ante. Proin tincidunt, purus in sagittis varius, metus arcu bibendum ligula, eu lobortis libero quam nec est. Donec finibus nisi at tellus aliquet bibendum vel sit amet mi. Sed rhoncus luctus orci, ac consequat leo consectetur non. Nulla pulvinar, mi a ultricies mollis, mi neque bibendum lacus, non auctor ligula leo nec leo. Sed sit amet eros fermentum, tincidunt urna a, mattis dui. Cras faucibus est vitae placerat pulvinar. Etiam nec enim tincidunt, tristique nunc eu, facilisis nibh. Quisque sed lectus neque. Morbi tempus fringilla magna ultricies blandit. Proin sollicitudin velit in arcu aliquet, nec viverra sapien tristique. Phasellus a ipsum eget erat pretium convallis. Phasellus lobortis elementum odio id volutpat. Mauris et iaculis felis, eu mollis ex. Donec lobortis, mauris eu vehicula dignissim, nulla nisl rhoncus justo, et tincidunt lacus mauris vitae lorem.</p>
-    <p class="pb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel dolor ornare, hendrerit odio eu, blandit elit. Sed nec turpis volutpat, sagittis dui sed, semper leo. Vestibulum suscipit ac tortor vel dignissim. Proin suscipit sagittis felis ut vestibulum. Sed faucibus scelerisque sapien sed auctor. Mauris facilisis gravida lorem, sit amet efficitur lorem congue at. Pellentesque gravida id diam id dapibus. Aliquam vel urna ac elit hendrerit faucibus sit amet non neque. Proin at odio accumsan, fringilla felis ut, sodales sem. Quisque magna mauris, elementum sit amet tincidunt sed, mollis ut lorem. Morbi id mollis ex. Sed dictum metus quis vulputate imperdiet. Duis porta, orci eget fermentum vestibulum, nunc mi sollicitudin erat, vel sodales metus ligula nec erat.</p>
-    <p class="pb-3">Cras congue aliquet lectus sit amet posuere. Phasellus sed dui in nibh euismod blandit. Duis eleifend pharetra enim id fermentum. Etiam libero ipsum, pretium efficitur tincidunt sit amet, vestibulum eget lectus. Vestibulum vestibulum lorem consectetur lacus facilisis, ut iaculis massa pellentesque. Nam enim ex, ornare sit amet pellentesque eget, ornare sed nisl. Sed non tellus ac purus semper accumsan a in purus. Aliquam finibus felis bibendum, efficitur dolor sed, vulputate nisi. Fusce diam elit, vestibulum at tincidunt lacinia, sollicitudin vitae ligula. Integer in risus lacinia, convallis nisl ac, hendrerit ante.</p>
-    <p class="pb-3">Fusce quis sodales ante. Proin tincidunt, purus in sagittis varius, metus arcu bibendum ligula, eu lobortis libero quam nec est. Donec finibus nisi at tellus aliquet bibendum vel sit amet mi. Sed rhoncus luctus orci, ac consequat leo consectetur non. Nulla pulvinar, mi a ultricies mollis, mi neque bibendum lacus, non auctor ligula leo nec leo. Sed sit amet eros fermentum, tincidunt urna a, mattis dui. Cras faucibus est vitae placerat pulvinar. Etiam nec enim tincidunt, tristique nunc eu, facilisis nibh. Quisque sed lectus neque. Morbi tempus fringilla magna ultricies blandit. Proin sollicitudin velit in arcu aliquet, nec viverra sapien tristique. Phasellus a ipsum eget erat pretium convallis. Phasellus lobortis elementum odio id volutpat. Mauris et iaculis felis, eu mollis ex. Donec lobortis, mauris eu vehicula dignissim, nulla nisl rhoncus justo, et tincidunt lacus mauris vitae lorem.</p>
-    <p class="pb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel dolor ornare, hendrerit odio eu, blandit elit. Sed nec turpis volutpat, sagittis dui sed, semper leo. Vestibulum suscipit ac tortor vel dignissim. Proin suscipit sagittis felis ut vestibulum. Sed faucibus scelerisque sapien sed auctor. Mauris facilisis gravida lorem, sit amet efficitur lorem congue at. Pellentesque gravida id diam id dapibus. Aliquam vel urna ac elit hendrerit faucibus sit amet non neque. Proin at odio accumsan, fringilla felis ut, sodales sem. Quisque magna mauris, elementum sit amet tincidunt sed, mollis ut lorem. Morbi id mollis ex. Sed dictum metus quis vulputate imperdiet. Duis porta, orci eget fermentum vestibulum, nunc mi sollicitudin erat, vel sodales metus ligula nec erat.</p>
-    <p class="pb-3">Cras congue aliquet lectus sit amet posuere. Phasellus sed dui in nibh euismod blandit. Duis eleifend pharetra enim id fermentum. Etiam libero ipsum, pretium efficitur tincidunt sit amet, vestibulum eget lectus. Vestibulum vestibulum lorem consectetur lacus facilisis, ut iaculis massa pellentesque. Nam enim ex, ornare sit amet pellentesque eget, ornare sed nisl. Sed non tellus ac purus semper accumsan a in purus. Aliquam finibus felis bibendum, efficitur dolor sed, vulputate nisi. Fusce diam elit, vestibulum at tincidunt lacinia, sollicitudin vitae ligula. Integer in risus lacinia, convallis nisl ac, hendrerit ante.</p>
-    <p class="pb-3">Fusce quis sodales ante. Proin tincidunt, purus in sagittis varius, metus arcu bibendum ligula, eu lobortis libero quam nec est. Donec finibus nisi at tellus aliquet bibendum vel sit amet mi. Sed rhoncus luctus orci, ac consequat leo consectetur non. Nulla pulvinar, mi a ultricies mollis, mi neque bibendum lacus, non auctor ligula leo nec leo. Sed sit amet eros fermentum, tincidunt urna a, mattis dui. Cras faucibus est vitae placerat pulvinar. Etiam nec enim tincidunt, tristique nunc eu, facilisis nibh. Quisque sed lectus neque. Morbi tempus fringilla magna ultricies blandit. Proin sollicitudin velit in arcu aliquet, nec viverra sapien tristique. Phasellus a ipsum eget erat pretium convallis. Phasellus lobortis elementum odio id volutpat. Mauris et iaculis felis, eu mollis ex. Donec lobortis, mauris eu vehicula dignissim, nulla nisl rhoncus justo, et tincidunt lacus mauris vitae lorem.</p>
-    <p class="pb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel dolor ornare, hendrerit odio eu, blandit elit. Sed nec turpis volutpat, sagittis dui sed, semper leo. Vestibulum suscipit ac tortor vel dignissim. Proin suscipit sagittis felis ut vestibulum. Sed faucibus scelerisque sapien sed auctor. Mauris facilisis gravida lorem, sit amet efficitur lorem congue at. Pellentesque gravida id diam id dapibus. Aliquam vel urna ac elit hendrerit faucibus sit amet non neque. Proin at odio accumsan, fringilla felis ut, sodales sem. Quisque magna mauris, elementum sit amet tincidunt sed, mollis ut lorem. Morbi id mollis ex. Sed dictum metus quis vulputate imperdiet. Duis porta, orci eget fermentum vestibulum, nunc mi sollicitudin erat, vel sodales metus ligula nec erat.</p>
-    <p class="pb-3">Cras congue aliquet lectus sit amet posuere. Phasellus sed dui in nibh euismod blandit. Duis eleifend pharetra enim id fermentum. Etiam libero ipsum, pretium efficitur tincidunt sit amet, vestibulum eget lectus. Vestibulum vestibulum lorem consectetur lacus facilisis, ut iaculis massa pellentesque. Nam enim ex, ornare sit amet pellentesque eget, ornare sed nisl. Sed non tellus ac purus semper accumsan a in purus. Aliquam finibus felis bibendum, efficitur dolor sed, vulputate nisi. Fusce diam elit, vestibulum at tincidunt lacinia, sollicitudin vitae ligula. Integer in risus lacinia, convallis nisl ac, hendrerit ante.</p>
-    <p class="pb-3">Fusce quis sodales ante. Proin tincidunt, purus in sagittis varius, metus arcu bibendum ligula, eu lobortis libero quam nec est. Donec finibus nisi at tellus aliquet bibendum vel sit amet mi. Sed rhoncus luctus orci, ac consequat leo consectetur non. Nulla pulvinar, mi a ultricies mollis, mi neque bibendum lacus, non auctor ligula leo nec leo. Sed sit amet eros fermentum, tincidunt urna a, mattis dui. Cras faucibus est vitae placerat pulvinar. Etiam nec enim tincidunt, tristique nunc eu, facilisis nibh. Quisque sed lectus neque. Morbi tempus fringilla magna ultricies blandit. Proin sollicitudin velit in arcu aliquet, nec viverra sapien tristique. Phasellus a ipsum eget erat pretium convallis. Phasellus lobortis elementum odio id volutpat. Mauris et iaculis felis, eu mollis ex. Donec lobortis, mauris eu vehicula dignissim, nulla nisl rhoncus justo, et tincidunt lacus mauris vitae lorem. 111</p>
-    <div class="pb-3"></div>
+<body>
+            <!--Calendar-->
+
+            <div class="calendar">
+                <div class="calendar-header">
+                  <button class="button" onclick="prevMonth()">&lt;</button>
+                  <div class="month-year" id="monthYear"></div>
+                  <button class="button" onclick="nextMonth()">&gt;</button>
+                </div>
+                <div class="calendar-body" id="calendarBody"></div>
+              </div>
+            
+              <!-- Popup for Selected Day -->
+              <div class="popup" id="popup">
+                <div class="popup-content">
+                  <button class="close-btn" onclick="closePopup()">×</button>
+                  <h3 id="popupTitle"></h3>
+                  <p id="popupDescription"></p>
+                </div>
+              </div>
+      
+        <script>
+                //Calendar Script
+    
+    const startMonth = 6;  // April (0 = Jan, 6 = July)
+const startYear = 2024;
+const endMonth = 3;    // April (0 = Jan, 3 = Apr)
+const endYear = 2025;
+
+let currentMonth = startMonth;
+let currentYear = startYear;
+
+const monthYearDisplay = document.getElementById('monthYear');
+const calendarBody = document.getElementById('calendarBody');
+const popup = document.getElementById('popup');
+const popupTitle = document.getElementById('popupTitle');
+const popupDescription = document.getElementById('popupDescription');
+const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+// Events data
+const events = {
+
+//July 2024
+  '2024-07-15': 'Start of Enrollment (LIS)',
+  '2024-07-22': 'School Preparation',
+  '2024-07-29': 'Opening of school year: Student Leaders Induction, Training & INSETS',
+  '2024-07-31': "Students' Leaders Training/Teachers Orientation",
+
+//August 2024
+  '2024-08-01': 'New Students Orientation',
+  '2024-08-02': "Parents' Orientation",
+  '2024-08-05': "Old Students' Orientation/Start of Classes - G11 & G12",
+  '2024-08-22': 'Multiple Intelligences Clubs Day',
+  '2024-08-26': 'National Heroes Day',
+
+//September 2024
+  '2024-09-25': 'First Examinations #1',
+  '2024-09-26': 'First Examinations #2',
+  '2024-09-26': 'First Examinations #3',
+  '2024-09-30': 'End of Frist Academic Quarter',
+
+//October 2024
+  '2024-10-01': 'Start of 2nd Academic Quarter',
+  '2024-10-12': 'Parents-Teachers Conference (for 1st Quarter Distribution of Report Cards)',
+  '2024-10-24': 'United Nations’ Day',
+
+//November 2024
+  '2024-11-01': 'All Saints Day (Special Non – Working Holidays)',
+  '2024-11-02': 'All Souls Day (Additional Special Non – Working Day Holiday)',
+  '2024-11-09': 'Outreach Day',
+  '2024-11-26': '2nd Quarter Examinations #1',
+  '2024-11-27': '2nd Quarter Examinations #2',
+  '2024-11-28': '2nd Quarter Examinations #3',
+  '2024-11-29': 'End of 2nd Academic Quarter (End of 1st Semester)',
+
+//December 2024
+  '2024-12-01': 'Teachers & Staff team-building & Spiritual Retreat #1',
+  '2024-12-02': 'Teachers & Staff team-building & Spiritual Retreat #2 // Semestral break-5 Days',
+  '2024-12-03': 'Teachers & Staff team-building & Spiritual Retreat #3',
+  '2024-12-09': 'Registration for Second Semester',
+  '2024-12-10': 'Start of 3rd Academic Quarter // Students’ Orientation',
+  '2024-12-14': 'Parents-Teachers’ Conference (for 2nd Quarter)/Distribution of Report Cards for 2nd Quarter',
+  '2024-12-20': 'Year End (Teachers and Students) Christmas Thanksgiving',
+  '2024-12-21': 'Start of Christmas Break',
+  '2024-12-25': 'Christmas Day (Regular Holiday)',
+  '2024-12-30': 'Rizal Day (Regular Holiday)',
+
+//January 2025
+  '2025-01-02': 'Resumption of classes',
+  '2025-01-18': 'Outreach Day-(MI-IA PETA)',
+  '2025-01-27': '3rd Quarter Examination #1',
+  '2025-01-28': '3rd Quarter Examination #2',
+  '2025-01-30': '3rd Quarter Examination #3',
+  '2025-01-31': 'End of 3rd Academic Quarter',
+
+//February 2025
+  '2025-02-05': 'Founding Anniversary Week of Palawan Bethel SHS (Day 1)',
+  '2025-02-06': 'Founding Anniversary Week of Palawan Bethel SHS (Day 2)',
+  '2025-02-07': 'Founding Anniversary Week of Palawan Bethel SHS (Day 3)',
+  '2025-02-08': 'Founding Anniversary Week of Palawan Bethel SHS (Day 4)',
+  '2025-02-12': 'Start of 4th Academic Quarter // Start of Immersion for Grade 12',
+  '2025-02-15': 'Outreach Day (MI-IA PETA)',
+  '2025-02-25': 'EDSA People Power Revolution Anniversary // End of Immersion',
+  '2025-02-27': 'Parent -Teachers Conference (PTC/Distribution of Report Cards for the 3rd Quarter)',
+
+//March 2025
+  '2025-03-03': 'Electoral Campaign: Student Council Officers For SY 2025-2026 (MI & Lunch Time only) Day 1',
+  '2025-03-04': 'Electoral Campaign: Student Council Officers For SY 2025-2026 (MI & Lunch Time only) Day 2',
+  '2025-03-07': 'Election Day- Student Council Officers for SY 2025-2026 (MI & Lunch Time)',
+  '2025-03-14': 'Research Forum',
+  '2025-03-19': '4th Quarter (Final) Examinations #1',
+  '2025-03-20': '4th Quarter (Final) Examinations #2',
+  '2025-03-21': '4th Quarter (Final) Examinations #3',
+  '2025-03-22': 'Grade 11 Day Camp',
+  '2025-03-24': '(TBA) National Achievement Test for Grade 12 (Tentative) [Day 1]',
+  '2025-03-25': '(TBA) National Achievement Test for Grade 12 (Tentative) [Day 2]',
+  '2025-03-26': 'March 26-31 (6 days) - Final Quarter remediation and Re-teaching, Compliance to/ submission of final requirements/ Recognition Programs for MIIA-PETA (Multiple Intelligences Interdisciplinary Activities-Performance Tasks)',
+
+//April 2025
+  '2025-04-01': 'Quarter remediation/Re-teaching and compliance to/ submission of final requirements/ Signing of clearance. #1',
+  '2025-04-02': 'Quarter remediation/Re-teaching and compliance to/ submission of final requirements/ Signing of clearance. #2',
+  '2025-04-03': 'Exit Interview for Grade 12 (#1)',
+  '2025-04-04': 'Exit Interview for Grade 12 (#2)',
+  '2025-04-05': 'Seniors’ Graduation Banquet/Ball',
+  '2025-04-07': 'Rehearsals (Recognition & Graduation) Day 1',
+  '2025-04-08': 'Rehearsals (Recognition & Graduation) Day 2',
+  '2025-04-09': 'Dry Run (At the Recognition & Graduation Venues) Day 1',
+  '2025-04-10': 'Dry Run (At the Recognition & Graduation Venues) Day 2',
+  '2025-04-11': 'Recognition of Achievers-Grade 11',
+  '2025-04-14': 'Recognition of Achievers-Grade 11',
+  '2025-04-15': 'Commencement Exercises and Recognition of Achievers-Grade 12 // END OF SY 2024-2025',
+};
+
+daysOfWeek.forEach(day => {
+  const dayElement = document.createElement('div');
+  dayElement.className = 'day';
+  dayElement.textContent = day;
+  calendarBody.appendChild(dayElement);
+});
+
+function displayCalendar(month, year) {
+  calendarBody.innerHTML = daysOfWeek.map(day => `<div class="day">${day}</div>`).join('');
+  monthYearDisplay.textContent = `${new Date(year, month).toLocaleString('default', { month: 'long' })} ${year}`;
+  
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  for (let i = 0; i < firstDay; i++) {
+    calendarBody.innerHTML += `<div class="date disabled"></div>`;
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dateKey = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const dateElement = document.createElement('div');
+    dateElement.className = 'date';
+    dateElement.textContent = day;
+
+    if (events[dateKey]) {
+      dateElement.classList.add('highlight');
+      dateElement.onclick = () => openPopup(day, month, year, events[dateKey]);
+    } else {
+      dateElement.onclick = () => openPopup(day, month, year);
+    }
+
+    calendarBody.appendChild(dateElement);
+  }
+}
+
+function nextMonth() {
+  if (currentYear === endYear && currentMonth === endMonth) return;
+  currentMonth++;
+  if (currentMonth > 11) {
+    currentMonth = 0;
+    currentYear++;
+  }
+  displayCalendar(currentMonth, currentYear);
+}
+
+function prevMonth() {
+  if (currentYear === startYear && currentMonth === startMonth) return;
+  currentMonth--;
+  if (currentMonth < 0) {
+    currentMonth = 11;
+    currentYear--;
+  }
+  displayCalendar(currentMonth, currentYear);
+}
+
+function openPopup(day, month, year, description = "No event for this day.") {
+  const monthName = new Date(year, month).toLocaleString('default', { month: 'long' });
+  popupTitle.textContent = `${monthName} ${day}, ${year}`;
+  popupDescription.textContent = description;
+  popup.classList.add('show');
+}
+
+function closePopup() {
+  popup.classList.remove('show');
+}
+
+displayCalendar(currentMonth, currentYear);
+
+
+        </script>
 </body>
 </html>
