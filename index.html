@@ -1,4 +1,24 @@
 <!DOCTYPE html>
+<!--//
+
+Welcome to Palawan Bethel Senior High School ^_^
+
+This website is intended to be part of K-12 Pyunghwa ICT student's
+learning experience, enforcing the knowledge they acquire from a
+seminar-type teaching about WWW basics, HTML, CSS and JavaScript.
+
+The codes in this website are not optimized for performance. Instead,
+it is deliberately maintained human-readable for student analysis.
+We apologize for the experience if you see it as slow or buggy.
+
+If you find anything that needs our attention, anything that needs
+to discuss, please contact one of the following:
+
+* https://www.facebook.com/donjoncomph
+
+* social@donjon.com.ph
+
+//-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +26,7 @@
     <title>Palawan Bethel Senior High School</title>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+    <style rel="stylesheet">
         body {
             font-family: 'Work Sans', sans-serif;
         }
@@ -24,142 +44,94 @@
         }
 
         #mobile-nav.open {
-            transform: translateX(20%);
+            transform: translateX(25%);
         }
+
+        /* .hover\:grow {
+            transition: all 0.4s;
+            transform: scale(1);
+        }
+        
+        .hover\:grow:hover {
+            transform: scale(1);
+            opacity: 0.6;
+        } */
     </style>
 </head>
 <body class="bg-gray-100 text-gray-700 flex flex-col items-center font-sans">
 
     <!-- Header -->
+    <a name="home"></a>
     <header class="w-full bg-white shadow-md py-4 px-6 flex justify-between items-center">
-        <a href="#"><h1 class="text-2xl font-semibold text-black-500">PBSHS</h1></a>
-        <button id="menu-btn" class="text-3xl text-black-500 fixed right-5 z-40">&#9776;</button>
+        <a href="#"><h1 class="text-2xl font-bold text-black-500">PBSHS</h1></a>
+        <button id="menu-btn" class="text-3xl text-black-500 fixed right-5 z-50">&#9776;</button>
     </header>
 
     <!-- Mobile Navigation Menu -->
-    <nav id="mobile-nav" class="fixed top-0 right-0 h-full w-2/3 bg-white shadow-lg transition-transform duration-300">
+    <nav id="mobile-nav" class="fixed top-0 right-0 h-full w-2/3 bg-white shadow-lg transition-transform duration-300 z-10">
         <ul class="flex flex-col p-6 space-y-4">
-            <li><a href="#" class="text-lg text-gray-700 hover:text-orange-500">Home</a></li>
-            <li><a href="#mission" class="text-lg text-gray-700 hover:text-orange-500">Mission</a></li>
-            <li><a href="#vision" class="text-lg text-gray-700 hover:text-orange-500">Vision</a></li>
-            <li><a href="#core-values" class="text-lg text-gray-700 hover:text-orange-500">Core Values</a></li>
-            <li><a href="#pledge" class="text-lg text-gray-700 hover:text-orange-500">Pledge</a></li>
-            <li><a href="#credits" class="text-lg text-gray-700 hover:text-orange-500">Credits</a></li>
-            <li><a href="#contact" class="text-lg text-gray-700 hover:text-orange-500">Contact</a></li>
+            <li><a href="#home" class="text-md text-gray-700 hover:text-orange-500">Home</a></li>
+            <li><a href="#welcome" class="text-md text-gray-700 hover:text-orange-500">Welcome</a></li>
+            <li><a href="#mission" class="text-md text-gray-700 hover:text-orange-500">Mission</a></li>
+            <li><a href="#vision" class="text-md text-gray-700 hover:text-orange-500">Vision</a></li>
+            <li><a href="#core-values" class="text-md text-gray-700 hover:text-orange-500">Core Values</a></li>
+            <li><a href="#the-school" class="text-md text-gray-700 hover:text-orange-500">The School</a></li>
+            <li><a href="#the-students" class="text-md text-gray-700 hover:text-orange-500">The Students</a></li>
+            <li><a href="#pledge" class="text-md text-gray-700 hover:text-orange-500">Pledge</a></li>
+            <li><a href="#contact" class="text-md text-gray-700 hover:text-orange-500">Contact</a></li>
         </ul>
     </nav>
 
+    
     <!-- Welcome -->
-    <section class="my-12 text-center space-y-10">
-        <p class="text-lg font-normal text-gray-600">Welcome to Palawan Bethel SHS Website<br><span id="current-date" class="font-medium"></span></p>
+    <a name="welcome"></a>
+    <section class="mt-8 mb-6 text-center max-w-lg mx-auto space-y-10">
+        <p class="text-xl font-medium text-gray-600">
+            <!-- Dynamic Date -->
+            <span id="current-date" class="font-medium"></span>
+            <br>
+            <span class="font-normal">Welcome to Palawan Bethel Senior High School!</span>
+        </p>
     </section>
 
-    <!-- Main Content -->
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-5 w-full max-w-md mx-auto">
+    <!-- Section -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-xl mx-auto">
 
         <!-- Announcements -->
-        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer m-2" style="background-image: url('https://placehold.co/600x400/6699CC/6699CC/png')" data-title="Announcements" data-url="announcements.html">
-            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-video md:aspect-square">
-                <h2 class="md:text-xl text-3xl font-semibold">Announcements</h2>
+        <a href="#modal=announcements" class="card bg-blend-overlay bg-[#665AFA] bg-opacity-70 hover:bg-opacity-100 transition duration-500 ease-in-out bg-cover bg-center rounded-lg drop-shadow-lg shadow-lg m-4">
+            <div class="p-4 text-white text-center aspect-video md:aspect-square flex flex-col justify-center">
+                <h2 class="md:text-2xl text-4xl font-semibold drop-shadow-md">Announcements</h2>
             </div>
-        </div>
-        
-        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer m-2" style="background-image: url('https://placehold.co/600x400/teal/teal/png')" data-title="School Calendar" data-url="school-calendar.html">
-            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-video md:aspect-square">
-                <h2 class="md:text-xl text-3xl font-semibold">School Calendar</h2>
-            </div>
-        </div>
+        </a>
 
-        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer m-2" style="background-image: url('https://placehold.co/600x400/purple/purple/png')" data-title="Principal's Corner" data-url="principals-corner.html">
-            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-video md:aspect-square">
-                <h2 class="md:text-xl text-3xl font-semibold">Principal's Corner</h2>
+        <!-- The Principal -->
+        <a href="#modal=the-principal" class="card bg-blend-overlay bg-[#CE5AFA] bg-opacity-70 hover:bg-opacity-100 transition duration-500 ease-in-out bg-cover bg-center rounded-lg drop-shadow-lg shadow-lg m-4">
+            <div class="p-4 text-white text-center aspect-video md:aspect-square flex flex-col justify-center">
+                <h2 class="md:text-2xl text-4xl font-semibold drop-shadow-md">The Principal</h2>
             </div>
-        </div>
+        </a>
 
-        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer m-2" style="background-image: url('https://placehold.co/600x400/pink/pink/png')" data-title="The Students" data-url="the-students.html">
-            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-video md:aspect-square">
-                <h2 class="md:text-xl text-3xl font-semibold">The Students</h2>
+        <!-- School Calendar -->
+        <a href="#modal=school-calendar" class="card bg-blend-overlay bg-[#9A59FA] bg-opacity-70 hover:bg-opacity-100 transition duration-500 ease-in-out bg-cover bg-center rounded-lg drop-shadow-lg shadow-lg m-4">
+            <div class="p-4 text-white text-center aspect-video md:aspect-square flex flex-col justify-center">
+                <h2 class="md:text-2xl text-4xl font-semibold">School Calendar</h2>
             </div>
-        </div>
+        </a>
 
-        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer m-2" style="background-image: url('https://placehold.co/600x400/orange/orange/png')" data-title="Faculty" data-url="faculty.html">
-            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-video md:aspect-square">
-                <h2 class="md:text-xl text-3xl font-semibold">Faculty</h2>
+        <!-- Upcoming Events -->
+        <a href="#modal=upcoming-events" class="card bg-blend-overlay bg-[#5A82FA] bg-opacity-70 hover:bg-opacity-100 transition duration-500 ease-in-out bg-cover bg-center rounded-lg drop-shadow-lg shadow-lg m-4">
+            <div class="p-4 text-white text-center aspect-video md:aspect-square flex flex-col justify-center">
+                <h2 class="md:text-2xl text-4xl font-semibold">Upcoming Events</h2>
             </div>
-        </div>
+        </a>
 
-        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer m-2" style="background-image: url('https://placehold.co/600x400/green/green/png')" data-title="Programs" data-url="programs.html">
-            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-video md:aspect-square">
-                <h2 class="md:text-xl text-3xl font-semibold">Programs</h2>
-            </div>
-        </div>
-        
-        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer m-2" style="background-image: url('https://placehold.co/600x400/red/red/png')" data-title="Offerings" data-url="offerings.html">
-            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-video md:aspect-square">
-                <h2 class="md:text-xl text-3xl font-semibold">Offerings</h2>
-            </div>
-        </div>
-        
-        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer m-2" style="background-image: url('https://placehold.co/600x400/6699CC/6699CC/png')" data-title="Tracks & Strands" data-url="tracks-strands.html">
-            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-video md:aspect-square">
-                <h2 class="md:text-xl text-3xl font-semibold">Tracks & Strands</h2>
-            </div>
-        </div>
-        
-        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer m-2" style="background-image: url('https://placehold.co/600x400/brown/brown/png')" data-title="Clubs" data-url="clubs.html">
-            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-video md:aspect-square">
-                <h2 class="md:text-xl text-3xl font-semibold">Clubs</h2>
-            </div>
-        </div>
-        
-        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer m-2" style="background-image: url('https://placehold.co/600x400/purple/purple/png')" data-title="MICC" data-url="micc.html">
-            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-video md:aspect-square">
-                <h2 class="md:text-xl text-3xl font-semibold">MICC</h2>
-            </div>
-        </div>
-        
-        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer m-2" style="background-image: url('https://placehold.co/600x400/magenta/magenta/png')" data-title="Student Council" data-url="student-council.html">
-            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-video md:aspect-square">
-                <h2 class="md:text-xl text-3xl font-semibold">Student Council</h2>
-            </div>
-        </div>
-        
-        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer m-2" style="background-image: url('https://placehold.co/600x400/yellow/yellow/png')" data-title="New Gazette" data-url="new-gazette.html">
-            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-video md:aspect-square">
-                <h2 class="md:text-xl text-3xl font-semibold">New Gazette</h2>
-            </div>
-        </div>
-
-        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer m-2" style="background-image: url('https://placehold.co/600x400/gray/gray/png')" data-title="Administration" data-url="administration.html">
-            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-video md:aspect-square">
-                <h2 class="md:text-xl text-3xl font-semibold">Administration</h2>
-            </div>
-        </div>
-
-        <div class="card bg-cover bg-center rounded-lg shadow-md cursor-pointer m-2" style="background-image: url('https://placehold.co/600x400/brown/brown/png')" data-title="History" data-url="history.html">
-            <div class="p-4 bg-black bg-opacity-20 text-white text-center rounded-lg aspect-video md:aspect-square">
-                <h2 class="md:text-xl text-3xl font-semibold">History</h2>
-            </div>
-        </div>
-        
     </section>
 
-    <!-- Modal -->
-    <div id="modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-        <div class="bg-white w-full h-full p-6 rounded-lg relative shadow-lg m-2">
-            <button id="close-modal" class="absolute top-5 right-5 text-gray-500 text-3xl">&times;</button>
-            <h2 id="modal-title" class="text-3xl font-semibold mb-4"></h2>
-            <iframe id="modal-url" class="bg-white w-full h-5/6"></iframe>
-        </div>
-    </div>
-
-    <br class="grid grid-cols-1 w-full max-w-md mx-auto my-8">
-
-    <section class="grid grid-cols-1 w-full max-w-md mx-auto space-y-5">
+    <section class="grid grid-cols-1 w-full max-w-xl mx-auto space-y-5">
 
         <!-- Mission -->
         <a name="mission"></a>
-        <div class="bg-white p-5 rounded-lg shadow-lg border border-gray-300 space-y-5 m-2">
+        <div class="bg-white p-5 rounded-lg shadow-lg border border-gray-300 space-y-5 m-4">
             <h2 class="text-xs text-gray-600">MISSION</h2>
             <p class="text-lg font-semibold text-black-500">With the Divine grace and guidance, the Palawan Bethel Senior High School (PBSHS), a Bible-believing Christian School, is committed to the service of youth, country, and God.</p>
             <p class="text-lg font-semibold text-black-500">PBSHS upholds lifelong learning through progressive, creative, innovative, and relevant instruction providing balance between academics and student activities in molding students to be God-loving, humane, just, competent, and service oriented.</p>
@@ -167,73 +139,214 @@
 
         <!-- Vision -->
         <a name="vision"></a>
-        <div class="bg-white p-5 rounded-lg shadow-lg border border-gray-300 space-y-5 m-2">
+        <div class="bg-white p-5 rounded-lg shadow-lg border border-gray-300 space-y-5 m-4">
             <h2 class="text-xs text-gray-600">VISION</h2>
             <p class="text-lg font-semibold text-black-500">The PBSHS, strives to develop humane, just, morally upright, competent, and service-oriented individuals who will lead, nurture and pass on these ideals to the next generation in its aim to serve the youth, country, and God with utmost competence, professionalism, and commitment.</p>
         </div>
 
         <!-- Core Values -->
         <a name="core-values"></a>
-        <div class="bg-white p-5 rounded-lg shadow-lg border border-gray-300 space-y-5 m-2">
+        <div class="bg-white p-5 rounded-lg shadow-lg border border-gray-300 space-y-5 m-4">
             <h2 class="text-xs text-gray-600">CORE VALUES</h2>
             <p class="text-lg font-semibold text-black-500">Benevolence, Excellence, Thankfulness, Honesty & Integrity, Environment-Friendliness, Loyalty, Love of God and Country, Service, Hard work, Social Responsibility</p>
         </div>
+        
+    </section>
+
+
+    <!-- The School -->
+    <a name="the-school"></a>
+    <section class="my-12 text-center max-w-xl mx-auto space-y-10">
+        <p class="text-xl font-medium text-gray-600">
+            <span class="font-medium">The School</span>
+            <br>
+            <span class="font-normal">We proudly showcase the vibrant heart of our community, highlighting everything the school has to offer.</span>
+        </p>
+    </section>
+
+    <!-- School Section -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-5 w-full max-w-xl mx-auto">
+        
+        <!-- Programs -->
+        <a href="#modal=programs" class="card bg-blend-overlay bg-[#FA5AE8] bg-opacity-70 hover:bg-opacity-100 transition duration-500 ease-in-out bg-cover bg-center rounded-lg drop-shadow-lg shadow-lg m-4">
+            <div class="p-4 text-white text-center aspect-video md:aspect-square flex flex-col justify-center">
+                <h2 class="md:text-2xl text-4xl font-semibold drop-shadow-md">Programs</h2>
+            </div>
+        </a>
+
+        <!-- Tracks/Strands -->
+        <a href="#modal=tracks/strands" class="card bg-blend-overlay bg-[#9E61FA] bg-opacity-70 hover:bg-opacity-100 transition duration-500 ease-in-out bg-cover bg-center rounded-lg drop-shadow-lg shadow-lg m-4">
+            <div class="p-4 text-white text-center aspect-video md:aspect-square flex flex-col justify-center">
+                <h2 class="md:text-2xl text-4xl font-semibold drop-shadow-md">Tracks/Strands</h2>
+            </div>
+        </a>
+
+        <!-- The Faculty -->
+        <a href="#modal=the-faculty" class="card bg-blend-overlay bg-[#665AFA] bg-opacity-70 hover:bg-opacity-100 transition duration-500 ease-in-out bg-cover bg-center rounded-lg drop-shadow-lg shadow-lg m-4">
+            <div class="p-4 text-white text-center aspect-video md:aspect-square flex flex-col justify-center">
+                <h2 class="md:text-2xl text-4xl font-semibold drop-shadow-md">The Faculty</h2>
+            </div>
+        </a>
+
+        <!-- Administration -->
+        <a href="#modal=administration" class="card bg-blend-overlay bg-[#CE5AFA] bg-opacity-70 hover:bg-opacity-100 transition duration-500 ease-in-out bg-cover bg-center rounded-lg drop-shadow-lg shadow-lg m-4">
+            <div class="p-4 text-white text-center aspect-video md:aspect-square flex flex-col justify-center">
+                <h2 class="md:text-2xl text-4xl font-semibold drop-shadow-md">Administration</h2>
+            </div>
+        </a>
+
+        <!-- History -->
+        <a href="#modal=history" class="card bg-blend-overlay bg-[#9A59FA] bg-opacity-70 hover:bg-opacity-100 transition duration-500 ease-in-out bg-cover bg-center rounded-lg drop-shadow-lg shadow-lg m-4">
+            <div class="p-4 text-white text-center aspect-video md:aspect-square flex flex-col justify-center">
+                <h2 class="md:text-2xl text-4xl font-semibold drop-shadow-md">History</h2>
+            </div>
+        </a>
+
+        <!-- The Founder -->
+        <a href="#modal=the-founder" class="card bg-blend-overlay bg-[#5A82FA] bg-opacity-70 hover:bg-opacity-100 transition duration-500 ease-in-out bg-cover bg-center rounded-lg drop-shadow-lg shadow-lg m-4">
+            <div class="p-4 text-white text-center aspect-video md:aspect-square flex flex-col justify-center">
+                <h2 class="md:text-2xl text-4xl font-semibold drop-shadow-md">The Founder</h2>
+            </div>
+        </a>
+
+    </section>
+
+    <!-- The Students -->
+    <a name="the-students"></a>
+    <section class="my-12 text-center max-w-xl mx-auto space-y-10">
+        <p class="text-xl font-medium text-gray-600">
+            <span class="font-medium">The Students</span>
+            <br>
+            <span class="font-normal">Here, we celebrate unique talents, achievements, stories, showcasing passion, creativity and potential of students driving our school forward.</span>
+        </p>
+    </section>
+
+    <!-- Students Section -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-5 w-full max-w-xl mx-auto">
+
+        <!-- New Gazette -->
+        <a href="#modal=new-gazette" class="card bg-blend-overlay bg-[#FA5AE8] bg-opacity-70 hover:bg-opacity-100 transition duration-500 ease-in-out bg-cover bg-center rounded-lg drop-shadow-lg shadow-lg m-4">
+            <div class="p-4 text-white text-center aspect-video md:aspect-square flex flex-col justify-center">
+                <h2 class="md:text-2xl text-4xl font-semibold drop-shadow-md">New Gazette</h2>
+            </div>
+        </a>
+
+        <!-- Student Council -->
+        <a href="#modal=student-council" class="card bg-blend-overlay bg-[#9E61FA] bg-opacity-70 hover:bg-opacity-100 transition duration-500 ease-in-out bg-cover bg-center rounded-lg drop-shadow-lg shadow-lg m-4">
+            <div class="p-4 text-white text-center aspect-video md:aspect-square flex flex-col justify-center">
+                <h2 class="md:text-2xl text-4xl font-semibold drop-shadow-md">Student Council</h2>
+            </div>
+        </a>
+
+        <!-- Multiple Intelligences -->
+        <a href="#modal=multiple-intelligences" class="card bg-blend-overlay bg-[#665AFA] bg-opacity-70 hover:bg-opacity-100 transition duration-500 ease-in-out bg-cover bg-center rounded-lg drop-shadow-lg shadow-lg m-4">
+            <div class="p-4 text-white text-center aspect-video md:aspect-square flex flex-col justify-center">
+                <h2 class="md:text-2xl text-4xl font-semibold drop-shadow-md">Multiple Intelligences</h2>
+            </div>
+        </a>
+
+        <!-- Christian Living -->
+        <a href="#modal=christian-living" class="card bg-blend-overlay bg-[#CE5AFA] bg-opacity-70 hover:bg-opacity-100 transition duration-500 ease-in-out bg-cover bg-center rounded-lg drop-shadow-lg shadow-lg m-4">
+            <div class="p-4 text-white text-center aspect-video md:aspect-square flex flex-col justify-center">
+                <h2 class="md:text-2xl text-4xl font-semibold drop-shadow-md">Christian Living</h2>
+            </div>
+        </a>
+        
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-gray-100 w-full h-full p-8 rounded-lg relative shadow-lg m-2">
+            <button id="close-modal" class="absolute top-5 right-5 text-gray-500 text-3xl">&times;</button>
+            <h2 class="text-left text-xs uppercase font-normal mb-4"><span>Palawan Bethel SHS</span> &rightarrow; <span id="modal-title"></span></h2>
+            <iframe id="modal-url" class="bg-inherit w-full h-[95%]"></iframe>
+        </div>
+    </div>
+
+    <section class="grid grid-cols-1 w-full max-w-xl mx-auto space-y-5">
 
         <!-- Pledge  -->
         <a name="pledge"></a>
-        <div class="bg-white p-5 rounded-lg shadow-lg border border-gray-300 space-y-5 m-2">
+        <div class="bg-white p-5 rounded-lg shadow-lg border border-gray-300 space-y-5 m-4">
             <h2 class="text-xs text-gray-600">PLEDGE</h2>
-            <p class="text-lg font-semibold text-black-500"><strong>Pledge of the Bible: </strong>I pledge allegiance to the Bible, God's Holy Word. I will make it a lamp unto my feet, and light unto my path, and i will hide its words in my heart that i might not sin against God.</p>
-            <p class="text-lg font-semibold text-black-500"><strong>Pledge of the Christian Flag: </strong>I pledge allegiance to the Christian Flag, and to the Savior for whose Kingdom it stands; one Savior, crusified, risen, and coming again with life and liberty for all who believe.</p>
-        </div>
-
-        <!-- Credits -->
-        <a name="credits"></a>
-        <div class="bg-white p-5 rounded-lg shadow-lg border border-gray-300 space-y-5 m-2">
-            <h2 class="text-xs text-gray-600">CREDITS</h2>
-            <p class="">
-                <span class="text-xs rounded-lg border border-orange-600 bg-orange-800 px-2 text-white">HTML 5</span>
-                <span class="text-xs rounded-lg border border-lime-800 bg-sky-400 px-2 text-black">CSS 3</span>
-                <span class="text-xs rounded-lg border border-yellow-800 bg-yellow-400 px-2 text-black">Javascript</span>
-                <span class="text-xs rounded-lg border border-teal-800 bg-teal-400 px-2 text-black">Tailwind CSS</span>
-                <span class="text-xs rounded-lg border border-pink-800 bg-pink-600 px-2 text-white">K-12 ICT</span>
-                <span class="text-xs rounded-lg border border-pink-800 bg-pink-600 px-2 text-white">Pyunghwa</span>
-                <span class="text-xs rounded-lg border border-sky-800 bg-sky-950 px-2 text-white">Donjon Philippines</span>
-                <span class="text-xs rounded-lg border border-lime-800 bg-sky-400 px-2 text-black">Netlify</span>
-                <span class="text-xs rounded-lg border border-black bg-black px-2 text-white">Github</span>
-                <span class="text-xs rounded-lg border border-teal-400 bg-teal-800 px-2 text-white">ChatGPT</span>
-            </p>
+            <p class="text-lg font-semibold text-black-500"><span class="text-teal-500">Pledge of the Bible:</span> I pledge allegiance to the Bible, God's Holy Word. I will make it a lamp unto my feet, and light unto my path, and i will hide its words in my heart that i might not sin against God.</p>
+            <p class="text-lg font-semibold text-black-500"><span class="text-teal-500">Pledge of the Christian Flag:</span> I pledge allegiance to the Christian Flag, and to the Savior for whose Kingdom it stands; one Savior, crusified, risen, and coming again with life and liberty for all who believe.</p>
         </div>
 
         <!-- Contact -->
         <a name="contact"></a>
-        <div class="bg-white p-5 rounded-lg shadow-lg border border-gray-300 space-y-5 m-2">
+        <div class="bg-white p-5 rounded-lg shadow-lg border border-gray-300 space-y-5 m-4">
             <h2 class="text-xs text-gray-600">CONTACT</h2>
-            <p class="text-lg font-semibold text-black-500"><a href="https://www.facebook.com/profile.php?id=61552695923543">Facebook</a></p>
+            <p class="text-lg font-semibold text-black-500">Purok Silangan, Barimbing, Brgy. San Manuel, Puerto Princesa City</p>
+            <p class="text-lg font-semibold text-black-500">+639064787243 (Ms. Mary Joy V. Mahilum)</p>
+            <p class="text-lg font-semibold text-black-500">
+                <a href="https://www.facebook.com/profile.php?id=61552695923543" class="mx-2">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+                    </svg>
+                </a>
+            </p>
         </div>
+
+        <!-- Credits -->
+        <a name="credits"></a>
+        <div class="bg-white p-5 rounded-lg shadow-lg border border-gray-300 space-y-5 m-4">
+            <h2 class="text-xs text-gray-600">CREDITS</h2>
+            <p class="text-wrap word-wrap wrap overflow-wrap">
+                <span class="text-xs rounded-lg border border-orange-600 bg-orange-800 px-2 text-white">HTML 5</span>
+                <span class="text-xs rounded-lg border border-lime-800 bg-sky-400 px-2 text-black">CSS 3</span>
+                <span class="text-xs rounded-lg border border-yellow-800 bg-yellow-400 px-2 text-black">Javascript</span>
+                <span class="text-xs rounded-lg border border-teal-800 bg-teal-400 px-2 text-black">Tailwind CSS</span>
+                <span class="text-xs rounded-lg border border-black bg-black px-2 text-white">Github</span>
+                <span class="text-xs rounded-lg border border-lime-800 bg-sky-400 px-2 text-black">Netlify</span>
+
+                <span class="text-wrap text-xs rounded-lg border border-pink-800 bg-pink-600 px-2 text-white">K12&nbsp;Pyunghwa&nbsp;ICT</span>
+                <span class="text-xs rounded-lg border border-sky-800 bg-sky-950 px-2 text-white">Donjon Philippines</span>
+                <span class="text-xs rounded-lg border border-teal-400 bg-teal-800 px-2 text-white">ChatGPT</span>
+                <span class="text-xs rounded-lg border border-black bg-black px-2 text-white">Bolt.new</span>
+                <span class="text-xs rounded-lg border border-yellow-800 bg-yellow-400 px-2 text-black">Google Drive</span>
+            </p>
+        </div>
+
     </section>
 
-    <br class="grid grid-cols-1 max-w-md mx-auto my-8">
-    <br class="grid grid-cols-1 max-w-md mx-auto my-8">
-    <br class="grid grid-cols-1 max-w-md mx-auto my-8">
+    <!-- Christian Living -->
+    <!-- Korean Language -->
+
+    <!--// Photo Credits
+
+Photo by Towfiqu barbhuiya: https://www.pexels.com/photo/pin-and-pen-on-calendar-11363590/
+
+Photo by Rachel Claire: https://www.pexels.com/photo/blackboard-withy-schedule-near-black-metal-table-and-chairs-5865207/
+
+Photo by Pixabay: https://www.pexels.com/photo/3x3-rubik-s-cube-54101/
+
+Photo by KATRIN  BOLOVTSOVA: https://www.pexels.com/photo/arranged-paper-clips-around-an-eraser-6192337/
+
+    //-->
 
     <!-- Footer -->
-    <footer class="w-full bg-gray-300 py-4 px-6 flex flex-col items-center mx-auto">
-        <h1 class="text-center text-black-300 text-xs">
-            All Rights Reserved
-            <span class=""> &nbsp; &nbsp; &middot; &nbsp; &nbsp; </span>
-            Copyright &copy; 2024 Palawan Bethel Senior High School
-            <span class=""> &nbsp; &nbsp; &middot; &nbsp; &nbsp; </span>
-            Hosted by Netlify
-            <span class=""> &nbsp; &nbsp; &middot; &nbsp; &nbsp; </span>
-            CI/CD by Github
-            <span class=""> &nbsp; &nbsp; &middot; &nbsp; &nbsp; </span>
-            Maintained by Donjon Information Technology Services
+    <footer class="w-full bg-gray-300 py-4 px-6 flex flex-col items-center mx-auto mt-10">
+        <h1 class="text-center text-black-300 text-sm md:text-xs space-y-0 pt-8">
+            <span class="block md:inline">Hosted by Netlify</span>
+            <span class="invisible md:visible "> &nbsp; &nbsp; &middot; &nbsp; &nbsp; </span>
+            <span class="block md:inline">CI/CD by Github</span>
+            <span class="invisible md:visible"> &nbsp; &nbsp; &middot; &nbsp; &nbsp; </span>
+            <span class="block md:inline">Initiated by Donjon Information Technology Services</span>
+            <span class="invisible md:visible"> &nbsp; &nbsp; &middot; &nbsp; &nbsp; </span>
+            <span class="block md:inline">Maintained by Pyunghwa ICT Development Team</span>
+        </h1>
+        <h1 class="text-center text-black-300 text-sm md:text-xs space-y-0 pt-10 md:pt-4 pb-8">
+            <span class="block md:inline">Copyright &copy; 2024</span>
+            <span class="invisible md:visible"> &nbsp; &nbsp; &middot; &nbsp; &nbsp; </span>
+            <span class="block md:inline">Palawan Bethel Senior High School</span>
+            <span class="invisible md:visible"> &nbsp; &nbsp; &middot; &nbsp; &nbsp; </span>
+            <span class="block md:inline">All Rights Reserved</span>
         </h1>
     </footer>    
 
     <!-- JavaScript -->
-    <script>
+    <script type="text/javascript">
 
         // Function to format the dynamic date
         function getFormattedDate() {
@@ -258,7 +371,7 @@
             const year = today.getFullYear();
 
             // Construct the message
-            const message = `Today is <u>${dayOfWeek}</u>, ${month} ${day}, ${year}`;
+            const message = `${dayOfWeek}, ${month} ${day}, ${year}`;
 
             return message;
         }
@@ -279,24 +392,94 @@
         const modalTitle = document.getElementById('modal-title');
         const modalUrl = document.getElementById('modal-url');
 
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('click', () => {
-                modal.classList.remove('hidden');
-                modalTitle.textContent = card.dataset.title;
-                modalUrl.src = card.dataset.url;
-            });
-        });
+        // Variable to store the original hash
+        let originalHash = undefined;        
 
+        // document.querySelectorAll('.card').forEach(card => {
+        //     card.addEventListener('click', () => {
+        //         modal.classList.remove('hidden');
+        //         modalTitle.textContent = card.dataset.title;
+        //         modalUrl.src = card.dataset.url;
+        //     });
+        // });
+
+        // Close modal
         closeModal.addEventListener('click', () => {
-            modal.classList.add('hidden');
+            closeModalFromFunction();
         });
 
         // Close modal on outside click
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
-                modal.classList.add('hidden');
+                closeModalFromFunction();
             }
         });
+
+        // Event listener for keydown events
+        document.addEventListener('keydown', (e) => {
+
+            // Close modal on "Escape"
+            if (e.key === "Escape") {
+                closeModalFromFunction();
+            }
+
+        });
+
+        // Function to close modal
+        function closeModalFromFunction() {
+
+            // Hide modal div section
+            modal.classList.add('hidden');
+
+            // Clear iframe content
+            modalUrl.src = undefined;
+
+            // Restore the original hash
+            if (originalHash) {
+                window.location.hash = originalHash;
+                // Clear the stored hash
+                originalHash = undefined;
+            } else {
+                // Clear the hash if no original
+                window.location.hash = "pbshs";
+            }
+            
+        }
+
+        // Function to open the modal based on hash
+        function openModalFromHash() {
+            const hash = window.location.hash.substring(1); // Remove the '#' from the hash
+            if (!hash) return;
+
+            // Save the original hash if not already saved
+            if (originalHash !== undefined) originalHash = hash;
+
+            // Assuming hash format is "modal:data"
+            const [mode, data] = decodeURIComponent(hash).split('=');
+
+            if ((mode === "modal") && (data.length > 1)) {
+                // console.log("Modal hash found: modal=" + data);
+                modalTitle.textContent = data.replace(/-/g, " ");
+                modalUrl.src = data.replace("/", "-") + ".html";
+                modal.classList.remove('hidden');
+            } else {
+                // console.log("Modal hash not found");
+            }
+        }
+
+        // Hash change listener
+        window.addEventListener('hashchange', openModalFromHash);        
+        
+        // Try to open model from hash
+        openModalFromHash();
+
     </script>
+
+<!--//
+rooster
+Image by <a href="https://pixabay.com/users/leuchtpunkt-13009256/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7521639">Andreas Neumann</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7521639">Pixabay</a>
+
+//-->
+
 </body>
 </html>
