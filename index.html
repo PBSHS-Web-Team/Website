@@ -24,7 +24,6 @@ to discuss, please contact one of the following:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palawan Bethel Senior High School</title>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/logo.png" type="image/icon type">
     <script src="https://cdn.tailwindcss.com"></script>
     <style rel="stylesheet">
         body {
@@ -313,18 +312,6 @@ to discuss, please contact one of the following:
     <!-- Christian Living -->
     <!-- Korean Language -->
 
-    <!--// Photo Credits
-
-Photo by Towfiqu barbhuiya: https://www.pexels.com/photo/pin-and-pen-on-calendar-11363590/
-
-Photo by Rachel Claire: https://www.pexels.com/photo/blackboard-withy-schedule-near-black-metal-table-and-chairs-5865207/
-
-Photo by Pixabay: https://www.pexels.com/photo/3x3-rubik-s-cube-54101/
-
-Photo by KATRIN  BOLOVTSOVA: https://www.pexels.com/photo/arranged-paper-clips-around-an-eraser-6192337/
-
-    //-->
-
     <!-- Footer -->
     <footer class="w-full bg-gray-300 py-4 px-6 flex flex-col items-center mx-auto mt-10">
         <h1 class="text-center text-black-300 text-sm md:text-xs space-y-0 pt-8">
@@ -395,14 +382,6 @@ Photo by KATRIN  BOLOVTSOVA: https://www.pexels.com/photo/arranged-paper-clips-a
         // Variable to store the original hash
         let originalHash = undefined;        
 
-        // document.querySelectorAll('.card').forEach(card => {
-        //     card.addEventListener('click', () => {
-        //         modal.classList.remove('hidden');
-        //         modalTitle.textContent = card.dataset.title;
-        //         modalUrl.src = card.dataset.url;
-        //     });
-        // });
-
         // Close modal
         closeModal.addEventListener('click', () => {
             closeModalFromFunction();
@@ -418,7 +397,7 @@ Photo by KATRIN  BOLOVTSOVA: https://www.pexels.com/photo/arranged-paper-clips-a
         // Event listener for keydown events
         document.addEventListener('keydown', (e) => {
 
-            // Close modal on "Escape"
+            // Close modal on "ESC" key
             if (e.key === "Escape") {
                 closeModalFromFunction();
             }
@@ -466,7 +445,14 @@ Photo by KATRIN  BOLOVTSOVA: https://www.pexels.com/photo/arranged-paper-clips-a
 
                 // console.log("Modal hash found: modal=" + data);
                 modalTitle.textContent = data.replace(/-/g, " ");
-                modalUrl.src = data.replace("/", "-") + ".html";
+
+                // Add cache buster to the iframe src
+                const cacheBuster = new Date().getTime();
+
+                // Load the iframe content
+                modalUrl.src = data.replace("/", "-") + ".html" + "?" + cacheBuster;
+                console.log("Modal URL: " + modalUrl.src);
+
                 modal.classList.remove('hidden');
             } else {
                 // console.log("Modal hash not found");

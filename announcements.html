@@ -19,7 +19,7 @@
     <h1 class="text-center text-2xl font-bold text-gray-800">Announcements</h1>
   </header>
 
-  <main class="w-full max-w-4xl px-4">
+  <main class="w-full max-w-4xl px-4" id="announcements">
 
     <!-- Announcement Item -->
     <div class="bg-white shadow-md rounded-lg p-6 mb-6">
@@ -34,6 +34,59 @@
     </div>
 
   </main>
+
+<script type="text/javascript">
+
+// Replace with your Google Sheet ID and API Key
+const SHEET_ID = "1okJxC2dGCADeqC2IFnievkggz1mG6tR1sgJYvcsMCq4";
+const API_KEY = "AIzaSyBzsUB4P-61hZKcAJLJb1mZt28oR1dUTls";
+const RANGE = "Announcements!A2:D101"; // Replace with your sheet's range
+
+async function fetchSheetData() {
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
+  try {
+    console.log("Fetching data from Google Sheets...");
+    const response = await fetch(url);
+    const data = await response.json();
+    renderHTML(data.values);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+function renderHTML(rows) {
+  const container = document.getElementById("announcements");
+  container.innerHTML = ""; // Clear existing content
+
+  // Sort the data by date in descending order
+  const sortedRows = rows.sort((a, b) => new Date(b[0]) - new Date(a[0]));
+
+  
+  // Render sorted rows
+  sortedRows.forEach((row) => {
+
+    const day = new Date(row[0]).toLocaleDateString("en-US", { weekday: "long" });
+
+    const announcement = `
+
+      <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+        <div class="text-gray-600 text-sm mb-2">
+          <span class="font-medium">${row[0]}</span> &middot; <span>${day}</span>
+        </div>
+        <h2 class="text-xl font-bold text-gray-800 mb-2">${row[1]}</h2>
+        <p class="text-gray-700">${row[2]}</p>
+      </div>
+
+    `;
+    container.innerHTML += announcement;
+  });
+}
+
+
+// Call the function on page load
+fetchSheetData();
+
+</script>
 
 </body>
 </html>

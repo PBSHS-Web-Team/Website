@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Announcements</title>
+    <title>Upcoming Events</title>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style rel="stylesheet">
@@ -19,32 +19,74 @@
     <h1 class="text-center text-2xl font-bold text-gray-800">Upcoming Events</h1>
   </header>
 
-  <main class="w-full max-w-4xl px-4">
+  <main class="w-full max-w-4xl px-4" id="upcoming-events">
 
-    <!-- Events Item -->
+    <!-- Upcoming Events Item -->
     <div class="bg-white shadow-md rounded-lg p-6 mb-6">
       <div class="text-gray-600 text-sm mb-2">
-        <span class="font-medium">December 5, 2024</span> - <span>Thursday</span>
+        <span class="font-medium">December 10, 2024</span> - <span>Tuesday</span>
       </div>
-      <h2 class="text-xl font-bold text-gray-800 mb-2">New Feature Release</h2>
+      <h2 class="text-xl font-bold text-gray-800 mb-2">Soft Launch: PBSHS Website</h2>
       <p class="text-gray-700">
-        We are excited to announce the release of our latest feature: live notifications! 
-        This will help you stay up-to-date with all updates in real-time.
+        We are excited to announce the soft launch of Palawan Bethel SHS Website! The development
+        and launch of the website will be made possible by the students of K12 Pyunghwa ICT.
       </p>
     </div>
 
-    <!-- Events Item -->
-    <div class="bg-white shadow-md rounded-lg p-6 mb-6">
-      <div class="text-gray-600 text-sm mb-2">
-        <span class="font-medium">November 30, 2024</span> - <span>Saturday</span>
-      </div>
-      <h2 class="text-xl font-bold text-gray-800 mb-2">Holiday Closure</h2>
-      <p class="text-gray-700">
-        Our offices will be closed for the holiday season from December 24 to January 2. 
-        Wishing you all a happy and safe holiday!
-      </p>
-    </div>
   </main>
+
+<script type="text/javascript">
+
+// Replace with your Google Sheet ID and API Key
+const SHEET_ID = "1okJxC2dGCADeqC2IFnievkggz1mG6tR1sgJYvcsMCq4";
+const API_KEY = "AIzaSyBzsUB4P-61hZKcAJLJb1mZt28oR1dUTls";
+const RANGE = "Upcoming Events!A2:D101"; // Replace with your sheet's range
+
+async function fetchSheetData() {
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
+  try {
+    console.log("Fetching data from Google Sheets...");
+    const response = await fetch(url);
+    const data = await response.json();
+    renderHTML(data.values);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+function renderHTML(rows) {
+  const container = document.getElementById("upcoming-events");
+  container.innerHTML = ""; // Clear existing content
+
+  // Sort the data by date in descending order
+  const sortedRows = rows.sort((a, b) => new Date(b[0]) - new Date(a[0]));
+
+  
+  // Render sorted rows
+  sortedRows.forEach((row) => {
+
+    const day = new Date(row[0]).toLocaleDateString("en-US", { weekday: "long" });
+
+    const events = `
+
+      <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+        <div class="text-gray-600 text-sm mb-2">
+          <span class="font-medium">${row[0]}</span> &middot; <span>${day}</span>
+        </div>
+        <h2 class="text-xl font-bold text-gray-800 mb-2">${row[1]}</h2>
+        <p class="text-gray-700">${row[2]}</p>
+      </div>
+
+    `;
+    container.innerHTML += events;
+  });
+}
+
+
+// Call the function on page load
+fetchSheetData();
+
+</script>
 
 </body>
 </html>
